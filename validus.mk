@@ -15,11 +15,15 @@
 # Inherit some common Validus stuff.
 $(call inherit-product, vendor/validus/config/common_full_tablet_wifionly.mk)
 
+# Enhanced NFC
+$(call inherit-product, vendor/validus/config/nfc_enhanced.mk)
+
 # Inherit from the common Open Source product configuration
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
 
 # Inherit from hardware-specific part of the product configuration
 $(call inherit-product, device/asus/flo/device.mk)
+$(call inherit-product, device/asus/flo/full_flo.mk)
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := flo
