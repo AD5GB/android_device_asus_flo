@@ -33,6 +33,7 @@ PRODUCT_PACKAGES += \
     audio.r_submix.default \
     libaudio-resampler
 
+
 PRODUCT_COPY_FILES += \
     device/asus/flo/audio/audio_effects.conf:system/vendor/etc/audio_effects.conf \
     device/asus/flo/audio/audio_policy.conf:system/etc/audio_policy.conf \
@@ -178,6 +179,33 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/asus/flo/configs/touch_dev.idc:system/usr/idc/touch_dev.idc \
     device/asus/flo/configs/elan-touchscreen.idc:system/usr/idc/elan-touchscreen.idc
+	
+# Facelock props
+PRODUCT_PROPERTY_OVERRIDES += \
+	ro.facelock.black_timeout=1250 \
+	ro.facelock.det_timeout=1500 \
+	ro.facelock.rec_timeout=2500 \
+	ro.facelock.lively_timeout=2500 \
+	ro.facelock.est_max_time=1000 \
+	ro.facelock.use_intro_anim=true
+
+# Missing props?
+PRODUCT_PROPERTY_OVERRIDES += \
+	ro.media.effect.bgdropper.adj=0.2 \
+	camera.flash_off=0 \
+	ro.com.widevine.cachesize=16777216
+
+# Fmas props
+PRODUCT_PROPERTY_OVERRIDES += \
+		fmas.spkr_6ch=35,20,110 \
+		fmas.spkr_2ch=35m,25 \
+		fmas.spkr_angles=10 \
+		fmas.spkr_sgain=0 
+
+# USB config
+PRODUCT_PROPERTY_OVERRIDES += \
+		persist.sys.usb.config=mtp,adb \
+		ro.adb.secure=0
 
 # Wifi
 PRODUCT_PACKAGES += \

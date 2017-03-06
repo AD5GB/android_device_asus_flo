@@ -19,6 +19,7 @@ TARGET_CPU_ABI2 := armeabi
 TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_CPU_VARIANT := krait
+TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
 
 # SDClang
 TARGET_USE_SDCLANG := true
@@ -68,7 +69,9 @@ PRESENT_TIME_OFFSET_FROM_VSYNC_NS := 3200000
 TARGET_USES_ION := true
 TARGET_USES_OVERLAY := true
 TARGET_USES_SF_BYPASS := true
-TARGET_USES_C2D_COMPOSITON := true
+TARGET_USES_C2D_COMPOSITION := true
+TARGET_USES_POST_PROCESSING := true
+TARGET_CUSTOM_DISPLAY_TUNING := true
 
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
@@ -87,6 +90,7 @@ BOARD_USES_SECURE_SERVICES := true
 
 USE_CAMERA_STUB := false
 BOARD_USES_CAMERA_FAST_AUTOFOCUS := false
+USE_DEVICE_SPECIFIC_CAMERA := true
 
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := $(TARGET_BOARD_PLATFORM)
 BOARD_VENDOR_QCOM_LOC_PDK_FEATURE_SET := true
@@ -118,12 +122,18 @@ BOARD_GLOBAL_CPPFLAGS += -DQCOM_BSP_LEGACY
 # Enable Minikin text layout engine (will be the default soon)
 USE_MINIKIN := true
 
+# Enable workaround for slow ROM flash
+BOARD_SUPPRESS_SECURE_ERASE := true
+
+# Enable real-time lockscreen charging current values
+BOARD_GLOBAL_CFLAGS += -DBATTERY_REAL_INFO
+
 # Include an expanded selection of fonts
 EXTENDED_FONT_FOOTPRINT := true
 
 # CM Hardware
-BOARD_HARDWARE_CLASS += \
-    hardware/cyanogen/cmhw
+#BOARD_HARDWARE_CLASS += \
+#    hardware/cyanogen/cmhw
 
 # Recovery
 TARGET_RECOVERY_DENSITY := hdpi
