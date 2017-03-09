@@ -10,8 +10,13 @@
 	"branch": "cm-14.1"
  },
  {
-	"repository": "TheMuppets/proprietary_vendor_asus",
+	"repository": "TheLoonyBin/proprietary_vendor_asus",
    "target_path": "vendor/asus",
-	"branch": "cm-14.1"
+	"branch": "ng7.1"
+ },
+ {
+	"repository": "TheLoonyBin/proprietary_vendor_broadcom",
+   "target_path": "vendor/broadcom",
+	"branch": "ng7.1"
  }
 ]
