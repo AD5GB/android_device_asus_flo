@@ -29,8 +29,14 @@ TARGET_NO_BOOTLOADER := true
 BOARD_KERNEL_BASE := 0x80200000
 BOARD_KERNEL_PAGESIZE := 2048
 # BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=msm8960 maxcpus=2
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=flo user_debug=31 msm_rtb.filter=0x3F ehci-hcd.park=3
-BOARD_KERNEL_CMDLINE += vmalloc=340M
+##BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=flo user_debug=31 msm_rtb.filter=0x3F ehci-hcd.park=3
+##BOARD_KERNEL_CMDLINE += vmalloc=340M
+## CMDLINE opts for ElementalX kernel base
+## Default CPU clock is 1512.  Avaliable clocks:
+## 1134000 1350000 1512000 1620000 1728000 1836000 1890000 1944000 1998000
+## 2052000 2106000 2160000 2214000
+## Sample cmdline: console=ttyHSL0,115200,n8 androidboot.hardware=flo user_debug=31 msm_rtb.filter=0x3F ehci-hcd.park=3 vmalloc=340M " $l2_opt $vdd_uv $max_oc0 $max_oc1 $max_oc2 $max_oc3 $gpu_oc 
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=flo user_debug=31 msm_rtb.filter=0x3F ehci-hcd.park=3 vmalloc=340M max_oc0=1998000 max_oc1=1998000 max_oc2=1998000 max_oc3=1998000
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000
 TARGET_KERNEL_SOURCE := kernel/google/msm
 ##TARGET_KERNEL_CONFIG := lineageos_flo_defconfig
