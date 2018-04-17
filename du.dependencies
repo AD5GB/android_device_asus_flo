@@ -1,0 +1,7 @@
+[
+ {
+   "repository": "LineageOS/android_kernel_google_msm",
+   "target_path": "kernel/google/msm",
+   "revision": "lineage-15.1"
+ }
+]
