@@ -69,8 +69,7 @@ TARGET_BOOTANIMATION_HALF_RES := true
 # Camera
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
-    camera.device@3.2-impl \
-    Snap
+    camera.device@3.2-impl
 
 # Charger
 PRODUCT_PACKAGES += \
@@ -98,6 +97,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     gps.conf \
     gps.msm8960
+
+PRODUCT_COPY_FILES += \
+    device/asus/flo/configs/gps.conf:$(TARGET_COPY_OUT_VENDOR)/etc/gps.conf
 
 # GNSS HAL
 PRODUCT_PACKAGES += \
